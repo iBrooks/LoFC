@@ -4,6 +4,7 @@
 </head>
 <body>
 <div id="radio_home"></div>
+<div id="radio_away"></div>
 <script>
 var radio_home = document.getElementById("radio_home");
 
@@ -14,13 +15,36 @@ var radio_home = document.getElementById("radio_home");
   radio.type = "radio";
   radio.name = "button1";
   radio.value = "pressed";
+  radio.id = "button1";
 
   label.appendChild(radio);
 
   label.appendChild(document.createTextNode("It's a Button"));
-  //return label;
+  return label;
 }
-  radio_home.appendChild(dostuff());
+
+radio_home.appendChild(dostuff());
+
+
+var clickerButton = document.getElementById("button1");
+var onButtonClick = function() {
+	var away = document.getElementById('radio_away');
+	away.textContent = "success!";
+ 	/*var label = document.createElement("label");
+  	var radio = document.createElement("input");
+  	radio.type = "radio";
+  	radio.name = "button1";
+  	radio.value = "pressed";
+  	radio.id = "button2";
+
+  	label.appendChild(radio);
+
+  	label.appendChild(document.createTextNode("Still a Button"));
+  	return label;*/
+};
+
+clickerButton.addEventListener('click', onButtonClick);
+
 </script>
 
 </body>
