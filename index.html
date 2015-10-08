@@ -4,46 +4,46 @@
 </head>
 <body>
 <div id="radio_home"></div>
-<div id="radio_away"></div>
+<div id="radio_away">Text</div>
 <script>
 var radio_home = document.getElementById("radio_home");
 
- function dostuff(){
- 	var label = document.createElement("label");
+function dostuff(butName, butValue, butText){
 
   var radio = document.createElement("input");
   radio.type = "radio";
-  radio.name = "button1";
-  radio.value = "pressed";
+  radio.name = butName;
+  radio.value = butValue;
   radio.id = "button1";
+
+  var label = document.createElement("label");
+  label.id = "buttonText";
 
   label.appendChild(radio);
 
-  label.appendChild(document.createTextNode("It's a Button"));
+  label.appendChild(document.createTextNode(butText));
   return label;
-}
+  }
 
-radio_home.appendChild(dostuff());
-
+radio_home.appendChild(dostuff("buttonOne", "button1","It's a Button!"));
 
 var clickerButton = document.getElementById("button1");
-var onButtonClick = function() {
-	var away = document.getElementById('radio_away');
-	away.textContent = "success!";
- 	/*var label = document.createElement("label");
-  	var radio = document.createElement("input");
-  	radio.type = "radio";
-  	radio.name = "button1";
-  	radio.value = "pressed";
-  	radio.id = "button2";
+//var onButtonClick = radio_home.appendChild(dostuff("buttonTwo", "button2"));
+function onButtonPress(){
+var away = document.getElementById('radio_away');
+away.innerHTML = "Hello";
 
-  	label.appendChild(radio);
-
-  	label.appendChild(document.createTextNode("Still a Button"));
-  	return label;*/
+radio_home.replaceChild(dostuff("buttonTwo", "button2", "It's also a Button!"), radio_home.childNodes[0]);
 };
 
-clickerButton.addEventListener('click', onButtonClick);
+ 
+
+clickerButton.addEventListener('click', onButtonPress);
+
+
+
+
+
 
 </script>
 
