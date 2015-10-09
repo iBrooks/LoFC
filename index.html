@@ -26,19 +26,22 @@ function dostuff(butName, butValue, butText){
   }
 
 radio_home.appendChild(dostuff("buttonOne", "button1","It's a Button!"));
+radio_home.appendChild(dostuff("buttonTwo", "button2","This is also a button"));
 
-var clickerButton = document.getElementById("button1");
+var clickerButton1 = document.getElementById("button1");
+var clickerButton2 = document.getElementById("button2");
 //var onButtonClick = radio_home.appendChild(dostuff("buttonTwo", "button2"));
-function onButtonPress(){
+function onButtonPress(butNumber){
 var away = document.getElementById('radio_away');
-away.innerHTML = "Hello";
+away.innerHTML = butNumber + " has been pressed";
 
-radio_home.replaceChild(dostuff("buttonTwo", "button2", "It's also a Button!"), radio_home.childNodes[0]);
+//radio_home.replaceChild(dostuff("buttonTwo", "button2", "It's also a Button!"), radio_home.childNodes[0]);
 };
 
  
 
-clickerButton.addEventListener('click', onButtonPress);
+clickerButton1.addEventListener('click', onButtonPress("buttonOne"));
+clickerButton2.addEventListener('click', onButtonPress("buttonTwo"));
 
 
 
@@ -49,5 +52,3 @@ clickerButton.addEventListener('click', onButtonPress);
 
 </body>
 </html>
-//I am putting it back in!
-//On Friday morning, October 9, I add this line
