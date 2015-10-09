@@ -3,50 +3,42 @@
 <head>
 </head>
 <body>
-<div id="radio_home"></div>
-<div id="radio_away">Text</div>
+<div id="question"></div>
+<div id="option1"></div>
+<div id="option2"></div>
+<div id="option3"></div>
+<div id="readOut">No option selected</div>
 <script>
-var radio_home = document.getElementById("radio_home");
+var quest = document.getElementById("question");
+var opt1 = document.getElementById("option1");
+var opt2 = document.getElementById("option2");
+var opt3 = document.getElementById("option3");
+var rdOt = document.getElementById("readOut");
 
-function dostuff(butName, butValue, butText){
-
-  var radio = document.createElement("input");
-  radio.type = "radio";
-  radio.name = butName;
-  radio.value = butValue;
-  radio.id = "button1";
-
-  var label = document.createElement("label");
-  label.id = "buttonText";
-
-  label.appendChild(radio);
-
-  label.appendChild(document.createTextNode(butText));
-  return label;
+function setQuestion(qst, op1, op2, op3){
+  quest.innerHTML = qst;
+  opt1.innerHTML = op1;
+  opt2.innerHTML = op2;
+  opt3.innerHTML = op3;
   }
 
-radio_home.appendChild(dostuff("buttonOne", "button1","It's a Button!"));
-radio_home.appendChild(dostuff("buttonTwo", "button2","This is also a button"));
+setQuestion("What is the cooldown of Rocket Grab at level 1?","10s", "15s", "20s");
 
-var clickerButton1 = document.getElementById("button1");
-var clickerButton2 = document.getElementById("button2");
-//var onButtonClick = radio_home.appendChild(dostuff("buttonTwo", "button2"));
-function onButtonPress(butNumber){
-var away = document.getElementById('radio_away');
-away.innerHTML = butNumber + " has been pressed";
+function opt1Press(){
+  rdOt.innerHTML = "Option 1 has been slected!";
+  }
 
-//radio_home.replaceChild(dostuff("buttonTwo", "button2", "It's also a Button!"), radio_home.childNodes[0]);
-};
+function opt2Press(){
+rdOt.innerHTML = "Option 2 has been slected!";
+}
+  
+function opt3Press(){
+rdOt.innerHTML = "Option 3 has been slected!";
+}
 
- 
-
-clickerButton1.addEventListener('click', onButtonPress("buttonOne"));
-clickerButton2.addEventListener('click', onButtonPress("buttonTwo"));
-
-
-
-
-
+opt1.addEventListener("click", opt1Press);
+opt2.addEventListener("click", opt2Press);
+opt3.addEventListener("click", opt3Press);
 
 </script>
 
